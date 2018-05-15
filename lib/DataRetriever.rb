@@ -1,3 +1,5 @@
+require_relative "../config/environment.rb"
+
 class DataRetriever
 
   def get_player_data(player_names)
@@ -17,7 +19,7 @@ class DataRetriever
   
     # Fetch Request
     res = http.request(req)
-    
+
     return JSON.parse(res.body)["cumulativeplayerstats"]["playerstatsentry"]
   end
 

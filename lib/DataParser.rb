@@ -1,3 +1,5 @@
+require_relative "../config/environment.rb"
+
 class DataParser
 
   def create_players_hash(player_data)
