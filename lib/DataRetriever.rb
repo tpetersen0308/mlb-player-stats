@@ -17,7 +17,7 @@ class DataRetriever
   
     # Fetch Request
     res = http.request(req)
-
+    
     return JSON.parse(res.body)["cumulativeplayerstats"]["playerstatsentry"]
   end
 
