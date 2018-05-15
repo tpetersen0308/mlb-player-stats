@@ -13,7 +13,9 @@ class CLI
       input = gets.chomp.downcase
     end
 
-    return players
+    return players.join(",")
   end
+
+
 
 end
