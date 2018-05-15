@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'mlb-player-stats'
+require_relative '../config/environment.rb'
