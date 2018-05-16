@@ -17,11 +17,11 @@ class DataRetriever
     # Create Request
     req =  Net::HTTP::Get.new(uri)
     # Add headers
-    req.add_field "Authorization", "Basic " + Base64.encode64("tpetersen0308:VanQuine137")
+    req.add_field "Authorization", "Basic " + Base64.encode64("#{ENV['USERNAME']}:#{ENV['PASSWORD']}")
   
     # Fetch Request
     res = http.request(req)
-    
+
     return JSON.parse(res.body)["cumulativeplayerstats"]["playerstatsentry"]
   end
 
