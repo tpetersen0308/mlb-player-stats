@@ -1,5 +1,5 @@
 require_relative "../config/environment.rb"
-require 'aslsx'
+require 'axlsx'
 
 class DataParser
 
@@ -44,7 +44,12 @@ class DataParser
     return (((player['stats']['PitcherStrikesMiss']['#text'].to_f)/(player['stats']['PitchesThrown']['#text'].to_f))*100).round(1).to_s
   end
 
-  def output_data
-
+  def output_data(players_hash)
+    p = Axlsx::Package.new
+    wb = p.workbook
+    wb.add_worksheet(:name => "Player Stats") do |sheet|
+      sheet.add_row ["First Column", "Second", "Third"]
+      sheet.add_row [1, 2, 3]
+      sheet.add_row ['     preserving whitespace']
   end
 end
