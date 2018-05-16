@@ -28,6 +28,7 @@ class CLI
     players_hash = DataParser.new.create_players_hash(player_data)
 
     # call method to export data from players_hash to excel sheet
+    DataParser.new.output_data(players_hash)
     puts "Your player stats have been exported to <filename>."
     puts "Have a nice day!"
   end
