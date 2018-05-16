@@ -1,4 +1,5 @@
 require_relative "../config/environment.rb"
+require 'aslsx'
 
 class DataParser
 
@@ -41,5 +42,9 @@ class DataParser
 
   def calculate_swstr_pct(player)
     return (((player['stats']['PitcherStrikesMiss']['#text'].to_f)/(player['stats']['PitchesThrown']['#text'].to_f))*100).round(1).to_s
+  end
+
+  def output_data
+
   end
 end
