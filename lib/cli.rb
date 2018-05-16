@@ -20,8 +20,12 @@ class CLI
 
   def start
     puts "Welcome to MLB Player Stats"
-    player_data = DataRetriever.new.get_player_data(get_players)
+    player_list = get_players
+  
+    player_data = DataRetriever.new.get_player_data(player_list)
+
     players_hash = DataParser.new.create_players_hash(player_data)
+
     # call method to export data from players_hash to excel sheet
     puts "Your player stats have been exported to <filename>."
     puts "Have a nice day!"
