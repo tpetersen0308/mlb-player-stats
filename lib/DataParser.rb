@@ -48,8 +48,10 @@ class DataParser
     p = Axlsx::Package.new
     wb = p.workbook
     wb.add_worksheet(:name => "Player Stats") do |sheet|
-      sheet.add_row ["First Column", "Second", "Third"]
+
+      sheet.add_row players_hash.keys
       sheet.add_row [1, 2, 3]
       sheet.add_row ['     preserving whitespace']
+    end
   end
 end
