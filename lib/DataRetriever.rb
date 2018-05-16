@@ -1,10 +1,12 @@
 require_relative "../config/environment.rb"
+require 'json'
+require 'pry'
 
 class DataRetriever
 
   def get_player_data(player_names)
     for_date = DateTime.now.strftime("%Y%m%d")
-    pull_url = "https://api.mysportsfeeds.com/v1.2/pull/mlb/2018-regular/cumulative_player_stats.json?for-date=#{for_date}&player=#{player_names}"
+    pull_url = "https://api.mysportsfeeds.com/v1.2/pull/mlb/2018-regular/cumulative_player_stats.json?for-date=#{for_date}&player=#{player_names.gsub(" ","-")}"
     uri = URI(pull_url)
   
     # Create client
@@ -15,11 +17,11 @@ class DataRetriever
     # Create Request
     req =  Net::HTTP::Get.new(uri)
     # Add headers
-    req.add_field "Authorization", "Basic " + Base64.encode64("#{ENV['USERNAME']}:#{ENV['PASSWORD']}")
+    req.add_field "Authorization", "Basic " + Base64.encode64("tpetersen0308:VanQuine137")
   
     # Fetch Request
     res = http.request(req)
-
+    
     return JSON.parse(res.body)["cumulativeplayerstats"]["playerstatsentry"]
   end
 
